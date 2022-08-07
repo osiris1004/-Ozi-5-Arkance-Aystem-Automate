@@ -1,0 +1,23 @@
+{
+  "name": "arkancsystemautomate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "postcss.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osiris1004/-Ozi-5-Arkance-System-Automate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/osiris1004/-Ozi-5-Arkance-System-Automate/issues"
+  },
+  "homepage": "https://github.com/osiris1004/-Ozi-5-Arkance-System-Automate#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.1.8"
+  }
+}
