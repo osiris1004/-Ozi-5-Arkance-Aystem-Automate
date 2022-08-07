@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 
-public interface UserRepositoryCrud extends CrudRepository<Application, Long> {
+public interface UserRepositoryCrud extends CrudRepository<Application, Integer> {
 
 
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Application Form</title>
@@ -9,14 +9,15 @@
 <div class="container mx-auto px-6 py-3 justify-center flex">
   <div class="w-full max-w-xs ">
     <h1 class="text-[200%] font-bold py-10">Application ..</h1>
-    <form th:action="@{/processApplication}"  method="post"
+    <form th:action="@{/user/processApplication}"  method="post" th:object="${application}"
           class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-
+      <input type="hidden" th:field="*{id}">
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
           Email
         </label>
-        <input  required
+        <input  th:field="*{email}"
+                required
                 class="shadow  border-b rounded w-full py-2 px-3 text-gray-700 leading-tight  focus:outline-none"
                 id="email" type="email" placeholder="Email">
       </div>
@@ -25,7 +26,8 @@
         <label class="block text-gray-700 text-sm font-bold mb-2" for="firstName">
           FirstName
         </label>
-        <input  required
+        <input  th:field="*{firstName}"
+                required
                 class="shadow  border-b rounded w-full py-2 px-3 text-gray-700 leading-tight  focus:outline-none"
                 id="firstName" type="text" placeholder="FirstName">
       </div>
@@ -35,7 +37,13 @@
       <div class="flex items-center justify-between">
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit">
-          Applly
+          Apply
+        </button>
+
+        <button onclick="cancelForm()"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="button">
+          cancel
         </button>
       </div>
     </form>
@@ -43,6 +51,13 @@
 </div>
 
 </div>
+
+
+<script>
+  const cancelForm =()=>{
+    window.location = "[[@{/users}]]"
+  }
+</script>
 
 </body>
 </html>
