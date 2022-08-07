@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>application</title>
@@ -13,19 +13,27 @@
                 <table class="min-w-full">
 
                     <tbody>
-                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
 
-                        <td class="px-6 py-4 text-sm font-medium text-gray-900">
-                            image
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4">
-                            titile<br>capany name<br>address
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4">
-                            Update form
-                        </td>
-                    </tr>
+                    <th:block th:each="item : ${applicationList}">
+                        <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
 
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900">
+                                image([[${item .id}]])
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4">
+                                titile<br>capany name<br>address
+                                [[${item .email}]]<br>
+                                [[${item .firstName}]]
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4">
+                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                                    Update status
+                                </button>
+
+
+                            </td>
+                        </tr>
+                    </th:block>
 
                     </tbody>
                 </table>

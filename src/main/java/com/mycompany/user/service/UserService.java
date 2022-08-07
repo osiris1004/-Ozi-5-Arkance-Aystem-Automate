@@ -13,10 +13,13 @@ public class UserService {
     @Autowired
     private UserRepositoryCrud repo;
 
-    public List<Application> listAll(){
+    // get all item from db
+    public List<Application> listsApplication(){
         return (List<Application>) repo.findAll();
     }
-    public void save(Application application) {
+
+    // the passed parameter(application) will be saved in db
+    public void saveApplication(Application application) {
         repo.save(application);
     }
 }
