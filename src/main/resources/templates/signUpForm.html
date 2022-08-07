@@ -3,51 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
-    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-<div class="container mx-auto px-6 py-3">
-    <div class="w-full max-w-xs">
-        <form th:action="@{/processRegister}" th:object="${user}"  method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+<div class="container mx-auto px-6 py-3 justify-center flex">
+    <div class="w-full max-w-xs ">
+        <h1 class="text-[200%] font-bold py-10">Registration</h1>
+        <form th:action="@{/processRegister}" th:object="${user}" method="post"
+              class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                    email
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                    Email
                 </label>
-                <input th:field="*{email}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Email">
+                <input th:field="*{email}" required
+                       class="shadow  border-b rounded w-full py-2 px-3 text-gray-700 leading-tight  focus:outline-none"
+                       id="email" type="email" placeholder="Email">
             </div>
 
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                    firstName
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="firstName">
+                    FirstName
                 </label>
-                <input th:field="*{firstName}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="FirstName">
+                <input th:field="*{firstName}" required
+                       class="shadow  border-b rounded w-full py-2 px-3 text-gray-700 leading-tight  focus:outline-none"
+                       id="firstName" type="text" placeholder="FirstName">
             </div>
 
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                    lastName
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="lastName">
+                    LastName
                 </label>
-                <input th:field="*{lastName}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="LastName">
+                <input th:field="*{lastName}" required
+                       class="shadow  border-b rounded w-full py-2 px-3 text-gray-700 leading-tight  focus:outline-none"
+                       id="lastName" type="text" placeholder="LastName">
             </div>
 
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                    password
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                    Password
                 </label>
-                <input th:field="*{password}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="password">
+                <input th:field="*{password}" required
+                       class="shadow  border-b rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none "
+                       id="password" type="password" placeholder="Password">
             </div>
 
             <div class="flex items-center justify-between">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        type="submit">
                     Sign In
                 </button>
-
             </div>
         </form>
-
     </div>
+</div>
 
 </body>
 </html>

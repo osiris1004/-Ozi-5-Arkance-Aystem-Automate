@@ -1,5 +1,6 @@
-package com.mycompany;
+package com.mycompany.user.service;
 
+import com.mycompany.model.CustomUserDetails;
 import com.mycompany.model.User;
 import com.mycompany.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,4 +25,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         // the given user is found with the given email a new CustomUserDetails object
         return new CustomUserDetails(user);
     }
+
+
 }

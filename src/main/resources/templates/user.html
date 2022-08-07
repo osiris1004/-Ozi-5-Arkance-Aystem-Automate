@@ -9,18 +9,22 @@
 <body>
 <div class="container mx-auto px-6 py-3">
   <div class="container mx-auto px-6 py-3">
-    <!--Print user name from request-->
-    <h1 class="text-[300%]">Well come [[${#request.userPrincipal.Principal.name}]]</h1>
+    <div class="flex">
+      <!--Print user name from request-->
+      <h1 class="text-[300%]">Well come [[${#request.userPrincipal.Principal.name}]]</h1>
 
-    <div class="border w-fit rounded-xl m-5 shadow-sm">
-      <form th:action="@{/logout}" method="post">
-        <button type="submit" class="px-4 py-2 rounded-l-xl text-white m-0 bg-red-500 hover:bg-red-600 transition">Logout</button>
-      </form>
-
-
+      <div class="border w-fit rounded-xl m-5 shadow-sm">
+        <form th:action="@{/logout}" method="post">
+          <button type="submit" class="px-4 py-2 rounded-xl text-white m-0 bg-red-500 hover:bg-red-600 transition">Logout</button>
+        </form>
+      </div>
 
     </div>
+    <h1 class="text-[300%]">what software do you want we build</h1>
   </div>
+
+
+
 
 </div>
 

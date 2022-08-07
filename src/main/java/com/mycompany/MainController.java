@@ -8,10 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-public class AppController {
+public class MainController {
 
     // reference to your userRepository
     @Autowired private UserRepository repo;
@@ -41,12 +40,6 @@ public class AppController {
 
         repo.save(user);
         return "registerSuccess";
-    }
-
-    @GetMapping("/user")
-    public  String showUserPage(){
-        // direct to the page index
-        return "user";
     }
 
 
