@@ -1,0 +1,130 @@
+package com.mycompany.auth;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+/*
+the configuration of spring security(that we added as a dependency) is done by creating a class that extend
+WebSecurityConfiguration adapter
+* */
+
+@EnableWebSecurity
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+    // create a user details service member variable
+    //once i create the implementation of userDetailsService(found in folder), spring is going to fire it, and it will go to the authenticationManagerBuilder
+    //which will call the userDetailsService in order to use up the user
+    @Autowired
+    UserDetailsService userDetailsService;
+
+
+// we are going to override the superclass methode
+    @Override
+    //authentication
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        //AuthenticationManagerBuilder is use to configure authentication.
+        //we are going to tel spring security that this authentication need to be connecting to JPA and getting the data
+        //from the database using mysql
+
+        //NB: for JPA there is not out of the box authentication, whereas with the other there is such as JDBC,LDAP etc
+
+        // inorder to have spring security work with JPA, what you need to do is to create an instance of this user
+        //details service
+
+        //the functionality that <detail service> does is basically
+        //-lookup the user using JPA
+
+        // create user detail. with just with this, spring security is going to call the method on this
+        // user detail service to get user info every time there is an authentication attempt right
+        auth.userDetailsService(userDetailsService);
+
+        super.configure(auth);
+    }
+
+    @Override
+    //authorization
+    protected void configure(HttpSecurity http) throws Exception {
+        // the following code setup the authorization for diffrent apis. we have in total 3 apis, we neeed to set up
+        //authorization
+
+        //line 1 says: authorize all request
+        http.authorizeRequests()
+
+                //line 1 says: at  "/admin" allow user with role ADMIN to access "/admin"
+                .antMatchers("/admin").hasAnyRole("ADMIN")
+
+                //line 2 says: at  "/user" allow user with role ADMIN or USER to access "/user"
+                .antMatchers("/user").hasAnyRole("ADMIN", "USER")
+
+                //line 3 says: at "/" (root) allow everyone to access "/"
+                .antMatchers("/").permitAll()
+
+                //allow form login
+                .and()
+                    .formLogin()
+
+                   /* //call custom login page
+                    .loginPage("/login")
+                    //get the input base on the input name
+                    .usernameParameter("userName")
+                    //allow every body to login in to "/login"
+                    .permitAll()*/
+                ;
+    }
+
+    // final step is to have your speing security password encoder. spring security expect you to have a password encoder
+    @Bean
+    public PasswordEncoder getPasswordEncoder(){return NoOpPasswordEncoder.getInstance();}
+
+
+
+}
+
+/*
+the way spring security get data from the database using  JPA is a bit tricky
+The way authentication works is as folow
+    authentication-manager {
+        +authentication()
+    }
+        |   talk tp    |
+        v              v
+    authentication-provider {
+        +authenticate()
+        +supports()
+    }
+        |   talk tp    |
+        v              v
+   user-details-service {
+        +loadUserByUserName()
+    }
+
+
+spring security provide <detail service> to you which take in a username and an then  return you
+a user object of type user detail
+
+So you can create the <detail service> and hand it to spring security and  say any time you need to
+look up a user call my service and spring security is going to manang the rest. that is it going to show
+the login , get the user information and then when it need to validate the information it going to call your service
+**/
+
+
+
+/*
+what is happening is that spring security is calling our userdetail service and say hey do you have a user with the input
+name. if yes give me the user detail and then what the user detail services will do is, returning myUserDetail Instance
+and it going to pass in the user gottrn fomr the client
+
+userDetails
+we are returning an object with role user, the password as pass etc
+
+userDetailsServices
+the sprin security is going to say ok there is a user in the system with this particular user name and the password as pass
+and it will compare the passwork and say ok everything is good
+* */
