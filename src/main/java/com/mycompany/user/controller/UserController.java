@@ -33,6 +33,7 @@ public class UserController {
     public  String showApplicationFormPage(Model model){
         // direct to the page index
         model.addAttribute("application", new Application());
+        model.addAttribute("pageTitle", "Application Form");
         return "applicationForm";
     }
 

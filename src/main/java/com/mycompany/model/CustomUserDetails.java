@@ -55,7 +55,7 @@ public class CustomUserDetails implements UserDetails {
     }
     //// for me to display in my views
     public String getName(){
-        return user.getFirstName();
+        return user.getUserName();
     }
 }
 

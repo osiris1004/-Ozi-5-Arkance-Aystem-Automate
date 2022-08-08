@@ -2,34 +2,34 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>signUpForm</title>
+  <title> Connexion</title>
   <link rel="stylesheet" th:href="@{/css/main.css}" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
 <div class="container mx-auto px-6 py-3 justify-center flex">
   <div class="w-full max-w-xs">
-    <h1 class="text-[200%] font-bold py-10">Log in your Account</h1>
+    <h1 class="text-[200%] font-bold py-10">Connectez-vous à votre compte</h1>
     <form th:action="@{/login}" method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
       <div class="container mx-auto px-6 py-3 justify-center flex">
         <div class="w-full max-w-xs ">
 
-          <form th:action="@{/processRegister}" th:object="${user}" method="post"
+          <form th:action="@{/processRegister}" method="post"
                 class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
             <div class="mb-4">
               <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
-                Email
+                E-mail
               </label>
               <input name="email" required
                      class="shadow  border-b rounded w-full py-2 px-3 text-gray-700 leading-tight  focus:outline-none"
-                     id="email" type="email" placeholder="Email">
+                     id="email" type="email" placeholder="E-mail">
             </div>
 
             <div class="mb-4">
               <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-                Password
+                Mot de passe
               </label>
               <input name="password" required
                      class="shadow  border-b rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none "
@@ -39,7 +39,7 @@
             <div class="flex items-center justify-between">
               <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                       type="submit">
-                Login
+                Connexion
               </button>
             </div>
           </form>
