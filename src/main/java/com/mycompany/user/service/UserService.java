@@ -20,8 +20,9 @@ public class UserService {
     }
 
     // the passed parameter(application) will be saved in db
-    public void saveApplication(Application application) {
+    public Application saveApplication(Application application) {
         repo.save(application);
+        return application;
     }
 
 

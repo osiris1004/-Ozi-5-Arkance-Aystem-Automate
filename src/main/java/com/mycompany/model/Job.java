@@ -10,7 +10,11 @@ public class Job {
     private Integer id;
     private  String Title;
     private  String location;
+
+    @Column(columnDefinition="TEXT")
     private  String description;
+
+
 
     public Integer getId() {
         return id;

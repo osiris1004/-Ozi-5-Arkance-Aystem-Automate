@@ -1,5 +1,7 @@
 package com.mycompany.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,9 +10,11 @@ public class Application {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    private  String fullName;
     private  String email;
-    private  String firstName;
+    private  String motivation;
+    private String cv;
+
 
     public Integer getId() {
         return id;
@@ -18,6 +22,14 @@ public class Application {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getEmail() {
@@ -28,11 +40,19 @@ public class Application {
         this.email = email;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getMotivation() {
+        return motivation;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setMotivation(String motivation) {
+        this.motivation = motivation;
+    }
+
+    public String getCv() {
+        return cv;
+    }
+
+    public void setCv(String cv) {
+        this.cv = cv;
     }
 }
