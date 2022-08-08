@@ -2,7 +2,7 @@ package com.mycompany.user.service;
 
 import com.mycompany.model.CustomUserDetails;
 import com.mycompany.model.User;
-import com.mycompany.user.UserRepository;
+import com.mycompany.user.repository.UserRepositoryJpa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,7 +14,7 @@ loadmethode byuser that is use by string security to perform authentication
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private UserRepository repo;
+    private UserRepositoryJpa repo;
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = repo.findByEmail(email);
