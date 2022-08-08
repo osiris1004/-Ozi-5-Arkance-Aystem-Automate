@@ -1,8 +1,8 @@
 package com.mycompany.user.service;
 
+import com.mycompany.UserNotFoundException;
 import com.mycompany.model.Application;
-import com.mycompany.user.UserRepository;
-import com.mycompany.user.UserRepositoryCrud;
+import com.mycompany.user.repository.UserRepositoryCrud;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

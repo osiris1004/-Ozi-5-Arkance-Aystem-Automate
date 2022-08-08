@@ -1,7 +1,7 @@
 package com.mycompany;
 
 import com.mycompany.model.User;
-import com.mycompany.user.UserRepository;
+import com.mycompany.user.repository.UserRepositoryJpa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class MainController {
 
     // reference to your userRepository
-    @Autowired private UserRepository repo;
+    @Autowired private UserRepositoryJpa repo;
 
 
     @GetMapping("/")

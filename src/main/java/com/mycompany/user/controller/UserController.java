@@ -1,7 +1,9 @@
 package com.mycompany.user.controller;
 
+import com.mycompany.job.service.JobService;
 import com.mycompany.model.Application;
-import com.mycompany.user.service.UserNotFoundException;
+import com.mycompany.UserNotFoundException;
+import com.mycompany.model.Job;
 import com.mycompany.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,11 +22,11 @@ public class UserController {
     private UserService service;
 
 
-    @GetMapping("/user")
+    /*@GetMapping("/user")
     public  String showUserPage(){
         // direct to the page index
         return "user";
-    }
+    }*/
 
     /// Display application form and pass the object to your html
     @GetMapping("/user/applicationForm")
@@ -69,4 +71,7 @@ public class UserController {
         }
 
     }
+
+
+
 }
