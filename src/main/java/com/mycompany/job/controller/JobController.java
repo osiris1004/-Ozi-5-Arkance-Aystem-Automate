@@ -26,4 +26,6 @@ public class JobController {
         // name of your html template
         return "user";
     }
+
+
 }
