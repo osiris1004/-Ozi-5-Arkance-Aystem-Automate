@@ -10,6 +10,7 @@ public class Application {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer applicationId;
+    private Integer jobId;
     private  String fullName;
     private  String email;
     private  String motivation;
@@ -75,5 +76,13 @@ public class Application {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getJobId() {
+        return jobId;
+    }
+
+    public void setJobId(Integer jobId) {
+        this.jobId = jobId;
     }
 }
