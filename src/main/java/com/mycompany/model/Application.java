@@ -9,19 +9,25 @@ import javax.persistence.*;
 public class Application {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer applicationId;
+    private Integer jobId;
     private  String fullName;
     private  String email;
     private  String motivation;
     private String cv;
 
+    private String title;
 
-    public Integer getId() {
-        return id;
+    @Column(columnDefinition="TEXT")
+    private  String description;
+
+
+    public Integer getApplicationId() {
+        return applicationId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setApplicationId(Integer applicationId) {
+        this.applicationId = applicationId;
     }
 
     public String getFullName() {
@@ -54,5 +60,29 @@ public class Application {
 
     public void setCv(String cv) {
         this.cv = cv;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getJobId() {
+        return jobId;
+    }
+
+    public void setJobId(Integer jobId) {
+        this.jobId = jobId;
     }
 }

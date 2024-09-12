@@ -54,18 +54,21 @@
                     <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
 
                         <td class="px-6 py-4 text-sm font-medium text-gray-900">
-                            image([[${item .id}]])
+                            image([[${item.applicationId}]])
                         </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4">
-                            titile<br>capany name<br>address
-                            [[${item .email}]]<br>
-                            [[${item .fullName}]]
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 w-[30%]">
+
+                            <div class="">
+                                <p class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-black"> [[${item.title}]]</p>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 ">[[${item.description}]]</p>
+                            </div>
+
 
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4">
 
                             <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-                               th:href="@{'/user/application/edit/' +${item.id}}">
+                               th:href="@{'/user/application/edit/' +${item.applicationId}}">
                                 Mise à jour</a>
 
 

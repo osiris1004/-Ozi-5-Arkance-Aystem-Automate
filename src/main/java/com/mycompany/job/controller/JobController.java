@@ -17,13 +17,11 @@ public class JobController {
     private JobService service;
 
     @GetMapping("/user")
-    // in this handler methode we need to access the spring MVC model object
     public String showJobList(Model model){
-        // execute our business logic
         List<Job> allJobs = service.listAllJobs();
-        // we put the <listUser> in to the model attribute, so that we can have access in the view
         model.addAttribute("allJobs", allJobs);
-        // name of your html template
         return "user";
     }
+
+
 }
